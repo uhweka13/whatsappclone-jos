@@ -17,13 +17,13 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-
         val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
 
         view_pager.adapter = sectionsPagerAdapter
 
         tabs.setupWithViewPager(view_pager)
 
-//        var text = getString(R.string.tab_text_1, username, mailCount)
+//        var text = getString(R.string.tab_text_1, username, mailCount
+
     }
 }
