@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#fff"
+    tools:context=".PhoneVerification">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/verify_toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter your phone number"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            android:textColor="#0D6411"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:id="@+id/tv_verify_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/verify_toolbar"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:text="WhatsApp will send an SMS message to verify your phone number"
+                android:gravity="center"/>
+        </LinearLayout>
+
+<!--        <TextView-->
+<!--            android:id="@+id/sp_states"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/tv_verify_text"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            style="@style/Widget.AppCompat.Spinner.Underlined"-->
+<!--            android:layout_marginTop="10px"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:layout_marginEnd="40dp"-->
+<!--            android:textAlignment="center"-->
+<!--            android:backgroundTint="#037766"-->
+<!--            android:text="Nigeria"/>-->
+
+    <com.rilixtech.widget.countrycodepicker.CountryCodePicker
+        android:id="@+id/ccp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:ccp_showFullName="true"
+        app:ccp_hidePhoneCode="true"
+        app:layout_constraintTop_toBottomOf="@id/tv_verify_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20px"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:textAlignment="center"
+        android:backgroundTint="#037766"
+        app:ccp_textSize="13dp"/>
+
+
+
+        <LinearLayout
+            android:id="@+id/ly_phone_code"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/ccp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/tv_selected_code"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="2.5dp"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:backgroundTint="#037766"
+                android:inputType="number"
+                android:drawableLeft="@drawable/ic_add"/>
+
+            <EditText
+                android:id="@+id/tv_phone_number"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="2.5dp"
+                android:layout_weight="7"
+                android:hint="phone number"
+                android:gravity="left"
+                android:backgroundTint="#037766"
+                android:inputType="phone" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Carrier SMS charges may apply"
+            app:layout_constraintTop_toBottomOf="@id/ly_phone_code"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/bt_send_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="next"
+            app:layout_constraintBottom_toTopOf="@id/ly_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/btn_next_back"
+            android:textColor="@android:color/white"/>
+
+
+            <LinearLayout
+                android:id="@+id/ly_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tv_text1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="You must be"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="20dp"
+                    android:textAlignment="center"/>
+
+            </LinearLayout>
+
+
+<!--    <com.rilixtech.widget.countrycodepicker.CountryCodePicker-->
+<!--        android:id="@+id/ccp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"/>-->
+
+<!--    <com.rilixtech.widget.countrycodepicker.CountryCodePicker-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:ccp_textColor="@color/colorAccent"/>-->
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

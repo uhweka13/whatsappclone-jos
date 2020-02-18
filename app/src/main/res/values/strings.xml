@@ -1,8 +1,15 @@
 <resources>
-    <string name="app_name">Whatsapp Clone</string>
+    <string name="app_name">WhatsApp</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="tab_text_1">Chats</string>
     <string name="tab_text_2">Status</string>
     <string name="tab_text_3">Calls</string>
+
+    <string-array name="countries">
+        <item> Select State of Origin</item>
+        <item> FCT ABUJA</item>
+        <item> Abia State</item>
+        <item> Adamawa State</item>
+    </string-array>
 
 </resources>
