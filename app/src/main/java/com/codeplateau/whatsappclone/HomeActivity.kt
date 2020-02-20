@@ -34,7 +34,8 @@ class HomeActivity : AppCompatActivity() {
 
 
         Log.i("usersss", userId)
-//        var text = getString(R.string.tab_text_1, username, mailCount
+
+
 
     }
 }

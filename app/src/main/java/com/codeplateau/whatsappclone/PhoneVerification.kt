@@ -1,6 +1,8 @@
 package com.codeplateau.whatsappclone
 
 
+import android.annotation.SuppressLint
+import android.annotation.TargetApi
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -47,23 +49,13 @@ class PhoneVerification : AppCompatActivity() {
 
 
 //    @RequiresApi(Build.VERSION_CODES.N)
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_phone_verification)
 
-        mAuth = FirebaseAuth.getInstance()
-
-        var userVerify = mAuth!!.currentUser
-
-        if (userVerify == null){
-            setContentView(R.layout.activity_phone_verification)
-        }else{
-
-            val intent = Intent(this, HomeActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            startActivity(intent)
-            finish()
-
-        }
 
 
 
@@ -106,9 +98,9 @@ class PhoneVerification : AppCompatActivity() {
         tv_selected_code.setText(countryCodeSelected)
         countrySelected = ccp.selectedCountryNameCode
 
-        // text with links below the next button
-//        tv_text1.setText(Html.fromHtml("<p>You must be <a href=\"http://www.facebook.com\">at least 16 years old</a> to register. Learn how WhatsApp works with the <a href=\"http://www.facebook.com\">Facebook Companies.</a></p>", Html.FROM_HTML_MODE_COMPACT))
-//        tv_text1.setMovementMethod(LinkMovementMethod.getInstance())
+        //text with links below the next button
+        tv_text1.setText(Html.fromHtml("<p>You must be <a href=\"http://www.facebook.com\">at least 16 years old</a> to register. Learn how WhatsApp works with the <a href=\"http://www.facebook.com\">Facebook Companies.</a></p>"))
+        tv_text1.setMovementMethod(LinkMovementMethod.getInstance())
 
 //        auth.setLanguageCode(Locale.getDefault().language)
 
@@ -311,7 +303,7 @@ class PhoneVerification : AppCompatActivity() {
         //show dialog
         val  mAlertDialog = mBuilder.show()
 
-        mDialogView.et_first_num.addTextChangedListener{
+        mDialogView.et_first_num.addTextChangedListener(){
            var pinCodeFinal = mDialogView.et_first_num.text.toString().trim()
 
             if (pinCodeFinal.length > 5 ){
