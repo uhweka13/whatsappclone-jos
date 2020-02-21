@@ -39,6 +39,14 @@ class MessageActivity : AppCompatActivity() {
             }
 
         }
+
+        val name = intent.getStringExtra("name")
+        tv_chats_name.setText("$name")
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     // inflates the menu for MessageActivity activity
