@@ -24,6 +24,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.kaopiz.kprogresshud.KProgressHUD
 import com.rilixtech.widget.countrycodepicker.Country
 import com.rilixtech.widget.countrycodepicker.CountryCodePicker
@@ -39,6 +41,7 @@ class PhoneVerification : AppCompatActivity() {
 
 
     private var mAuth: FirebaseAuth? = null
+    private var mDatabase: FirebaseDatabase?=null
     private var storedVerificationId: String? = null
     private lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
     lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
@@ -265,6 +268,8 @@ class PhoneVerification : AppCompatActivity() {
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
 
         mAuth = FirebaseAuth.getInstance()
+        mDatabase = FirebaseDatabase.getInstance()
+        val mUsers: DatabaseReference = mDatabase!!.reference!!.child("Users")
 
         mAuth!!.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
@@ -272,6 +277,17 @@ class PhoneVerification : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
 
 //                    val user = task.result?.user
+
+                    //fetch current user id
+                    val userId = mAuth!!.currentUser!!.uid
+
+                    //update user profile information
+                    val currentUserDb = mUsers!!.child(userId)
+                    currentUserDb.child("phone").setValue("+$countryCodeSelected$userPhoneNumber")
+                    currentUserDb.child("status").setValue("")
+                    currentUserDb.child("username").setValue("")
+                    currentUserDb.child("userImg").setValue("")
+                    currentUserDb.child("uid").setValue(userId)
 
 
 

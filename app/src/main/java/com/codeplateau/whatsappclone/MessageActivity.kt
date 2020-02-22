@@ -18,7 +18,6 @@ class MessageActivity : AppCompatActivity() {
         val toolbar = findViewById(R.id.message_toolbar) as Toolbar
         setSupportActionBar(toolbar)
 
-
         getSupportActionBar()!!.setDisplayHomeAsUpEnabled(true)
         getSupportActionBar()!!.setDisplayShowHomeEnabled(true)
 
